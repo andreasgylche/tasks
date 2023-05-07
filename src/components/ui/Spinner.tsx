@@ -1,8 +1,6 @@
 import * as React from "react";
 
-export interface ISpinnerProps {}
-
-export function Spinner(props: ISpinnerProps) {
+export function Spinner() {
   return (
     <div role="status">
       <svg
