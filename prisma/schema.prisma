@@ -19,5 +19,5 @@ model Task {
     done   Boolean @default(false)
     userId String
 
-    @@index([userId], name: "userId")
+    @@index([userId])
 }
