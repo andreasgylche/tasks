@@ -15,7 +15,7 @@ model Task {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
 
-    title  String  @db.VarChar(255)
+    task   String  @db.VarChar(255)
     done   Boolean @default(false)
     userId String
 
