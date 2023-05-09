@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from "react";
 import Navbar from "./Navbar";
 
-export default function PageLayout(props: PropsWithChildren<{}>) {
+export default function PageLayout(props: PropsWithChildren) {
   return (
     <main className="">
       <Navbar />
