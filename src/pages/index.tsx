@@ -14,13 +14,13 @@ const Home: NextPage = () => {
 
   const { mutate: toggleStatus } = api.tasks.toggleStatus.useMutation({
     onSuccess: () => {
-      ctx.tasks.get.invalidate();
+      void ctx.tasks.get.invalidate();
     },
   });
 
   const { mutate: deleteTask } = api.tasks.delete.useMutation({
     onSuccess: () => {
-      ctx.tasks.get.invalidate();
+      void ctx.tasks.get.invalidate();
     },
   });
 
@@ -35,14 +35,14 @@ const Home: NextPage = () => {
         <SubmitTask />
         {isLoading && <Spinner />}
         {data?.map((task) => (
-          <div className="flex gap-2">
+          <div key={task.id} className="flex gap-2">
             <span onClick={() => deleteTask({ id: task.id })}>❌</span>
             <span
               onClick={() => toggleStatus({ isDone: !task.done, id: task.id })}
             >
               ✅
             </span>
-            <p key={task.id}>{task.task}</p>
+            <p>{task.task}</p>
             <span>{task.done ? "Done" : "Not done"}</span>
           </div>
         ))}

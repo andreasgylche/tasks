@@ -10,7 +10,7 @@ export default function SubmitTask() {
   const { mutate, isLoading: isPosting } = api.tasks.create.useMutation({
     onSuccess: () => {
       setTask("");
-      ctx.tasks.get.invalidate();
+      void ctx.tasks.get.invalidate();
     },
   });
 
