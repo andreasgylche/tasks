@@ -44,6 +44,7 @@ const Home: NextPage = () => {
             </span>
             <p>{task.task}</p>
             <span>{task.done ? "Done" : "Not done"}</span>
+            <span>{task.createdAt.toString()}</span>
           </div>
         ))}
       </PageLayout>
