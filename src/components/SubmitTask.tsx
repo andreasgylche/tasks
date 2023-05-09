@@ -16,7 +16,7 @@ export default function SubmitTask() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    mutate({ content: task });
+    void mutate({ content: task });
   };
 
   return (
