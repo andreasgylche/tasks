@@ -1,6 +1,6 @@
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import React from "react";
-import { FiCheckSquare } from "react-icons/fi";
+import { ListBulletIcon } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
   const user = useUser();

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HiPlusSm } from "react-icons/hi";
+import { PlusSmallIcon } from "@heroicons/react/24/outline";
 import { api } from "~/utils/api";
 
 export default function SubmitTask() {
