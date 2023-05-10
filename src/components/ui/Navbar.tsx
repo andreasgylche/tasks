@@ -8,10 +8,11 @@ export default function Navbar() {
   console.log(user);
 
   return (
-    <div className="flex h-14 items-center justify-between bg-neutral-800 px-4 shadow-sm">
-      <div className="flex items-center gap-2">
-        <FiCheckSquare />
-        <span className="mb-[2px] text-xl">tasks</span>
+    <div className="flex h-14 items-center justify-between bg-neutral-100 px-4 shadow-sm dark:bg-neutral-800">
+      <div className="flex items-center gap-1">
+        <ListBulletIcon className="h-5 w-5 text-neutral-900 dark:bg-neutral-100" />
+
+        <span className="text-lg">tasks</span>
       </div>
       {!user.isSignedIn && <SignInButton />}
       {user.isSignedIn && <UserButton />}

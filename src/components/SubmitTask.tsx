@@ -24,15 +24,25 @@ export default function SubmitTask() {
       <input
         type="text"
         placeholder="What are you gonna do today?"
-        className="h-12 w-full rounded-xl border border-neutral-800 bg-transparent pl-12 focus:outline-none focus:ring focus:ring-neutral-700"
+        className="h-12 w-full rounded-xl border bg-transparent pl-12 focus:outline-none focus:ring focus:ring-neutral-300 dark:border-neutral-800 dark:focus:ring-neutral-700"
         autoFocus
         value={task}
         onChange={(e) => setTask(e.target.value)}
         disabled={isPosting}
       />
-      <button className="absolute ml-3 mt-3 flex h-6 w-6 items-center justify-center rounded-lg bg-teal-700">
-        <HiPlusSm color="#171717" size={20} />
+      <button className="absolute ml-3 mt-3 flex h-6 w-6 items-center justify-center rounded-lg bg-pink-700 dark:bg-teal-700">
+        <PlusSmallIcon className="h-5 w-5 text-neutral-100 dark:text-neutral-900" />
       </button>
+      {isPosting && (
+        <div
+          className="absolute right-6 top-8 inline-block h-4 w-4 animate-spin rounded-full border-4 border-solid border-current border-pink-700 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+          role="status"
+        >
+          <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+            Loading...
+          </span>
+        </div>
+      )}
     </form>
   );
 }
