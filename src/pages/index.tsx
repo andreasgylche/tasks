@@ -20,9 +20,11 @@ const Home: NextPage = () => {
       <PageLayout>
         <SubmitTask />
         {isLoading && <BigSpinner />}
-        {data?.map((task) => (
-          <Task key={task.id} task={task} />
-        ))}
+        <div className="flex w-full flex-col gap-2">
+          {data?.map((task) => (
+            <Task key={task.id} task={task} />
+          ))}
+        </div>
       </PageLayout>
     </>
   )

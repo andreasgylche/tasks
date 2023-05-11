@@ -21,7 +21,7 @@ export default function SubmitTask() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="relative flex w-full gap-2 p-4">
+    <form onSubmit={handleSubmit} className="relative mb-4 flex w-full gap-2">
       <input
         type="text"
         placeholder="What are you gonna do today?"
