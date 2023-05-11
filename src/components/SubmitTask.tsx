@@ -1,23 +1,24 @@
-import React, { useState } from "react";
-import { PlusSmallIcon } from "@heroicons/react/24/outline";
-import { api } from "~/utils/api";
+import React, { useState } from 'react'
+import { PlusSmallIcon } from '@heroicons/react/24/outline'
+import { api } from '~/utils/api'
+import { Spinner } from './ui/Spinner'
 
 export default function SubmitTask() {
-  const [task, setTask] = useState("");
+  const [task, setTask] = useState('')
 
-  const ctx = api.useContext();
+  const ctx = api.useContext()
 
   const { mutate, isLoading: isPosting } = api.tasks.create.useMutation({
     onSuccess: () => {
-      setTask("");
-      void ctx.tasks.get.invalidate();
+      setTask('')
+      void ctx.tasks.get.invalidate()
     },
-  });
+  })
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    void mutate({ content: task });
-  };
+    e.preventDefault()
+    void mutate({ content: task })
+  }
 
   return (
     <form onSubmit={handleSubmit} className="relative flex w-full gap-2 p-4">
@@ -30,19 +31,16 @@ export default function SubmitTask() {
         onChange={(e) => setTask(e.target.value)}
         disabled={isPosting}
       />
-      <button className="absolute ml-3 mt-3 flex h-6 w-6 items-center justify-center rounded-lg bg-pink-700 dark:bg-teal-700">
-        <PlusSmallIcon className="h-5 w-5 text-neutral-100 dark:text-neutral-900" />
+      <button
+        disabled={!task}
+        className="absolute ml-3 mt-3 flex h-6 w-6 items-center justify-center rounded-lg bg-pink-700 dark:bg-teal-700"
+      >
+        {isPosting ? (
+          <Spinner size={4} color="fill-neutral-900" />
+        ) : (
+          <PlusSmallIcon className="h-5 w-5 text-neutral-100 dark:text-neutral-900" />
+        )}
       </button>
-      {isPosting && (
-        <div
-          className="absolute right-6 top-8 inline-block h-4 w-4 animate-spin rounded-full border-4 border-solid border-current border-pink-700 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-          role="status"
-        >
-          <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-            Loading...
-          </span>
-        </div>
-      )}
     </form>
-  );
+  )
 }

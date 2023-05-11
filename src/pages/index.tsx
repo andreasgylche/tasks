@@ -1,16 +1,14 @@
-import { type NextPage } from "next";
-import Head from "next/head";
+import { type NextPage } from 'next'
+import Head from 'next/head'
 
-import { api } from "~/utils/api";
-import { Spinner } from "~/components/ui/Spinner";
-import SubmitTask from "~/components/SubmitTask";
-import PageLayout from "~/components/ui/Layout";
-import Task from "~/components/Task";
+import { api } from '~/utils/api'
+import { Spinner } from '~/components/ui/Spinner'
+import SubmitTask from '~/components/SubmitTask'
+import PageLayout from '~/components/ui/Layout'
+import Task from '~/components/Task'
 
 const Home: NextPage = () => {
-  const { data, isLoading } = api.tasks.get.useQuery();
-
-  console.log(data);
+  const { data, isLoading } = api.tasks.get.useQuery()
 
   return (
     <>
@@ -21,13 +19,13 @@ const Home: NextPage = () => {
       </Head>
       <PageLayout>
         <SubmitTask />
-        {isLoading && <Spinner />}
+        {isLoading && <Spinner size={8} color="neutral-100" />}
         {data?.map((task) => (
           <Task key={task.id} task={task} />
         ))}
       </PageLayout>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

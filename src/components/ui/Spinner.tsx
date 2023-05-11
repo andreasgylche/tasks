@@ -1,11 +1,11 @@
-import * as React from "react";
+import * as React from 'react'
 
-export function Spinner() {
+export function Spinner({ size, color }: { size: number; color: string }) {
   return (
     <div role="status">
       <svg
         aria-hidden="true"
-        className="mr-2 h-8 w-8 animate-spin fill-teal-700 text-gray-200 dark:text-gray-600"
+        className={`h-${size} w-${size} animate-spin ${color} text-transparent`}
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +21,5 @@ export function Spinner() {
       </svg>
       <span className="sr-only">Loading...</span>
     </div>
-  );
+  )
 }
