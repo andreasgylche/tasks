@@ -6,7 +6,6 @@ import { Spinner } from "~/components/ui/Spinner";
 import SubmitTask from "~/components/SubmitTask";
 import PageLayout from "~/components/ui/Layout";
 import Task from "~/components/Task";
-const { format } = require("date-fns");
 
 const Home: NextPage = () => {
   const { data, isLoading } = api.tasks.get.useQuery();
