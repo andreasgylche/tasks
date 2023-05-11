@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { PlusSmallIcon } from '@heroicons/react/24/outline'
 import { api } from '~/utils/api'
-import { Spinner } from './ui/Spinner'
+import { SmallSpinner } from './ui/SmallSpinner'
 
 export default function SubmitTask() {
   const [task, setTask] = useState('')
@@ -36,7 +36,7 @@ export default function SubmitTask() {
         className="absolute ml-3 mt-3 flex h-6 w-6 items-center justify-center rounded-lg bg-pink-700 dark:bg-teal-700"
       >
         {isPosting ? (
-          <Spinner size={4} color="fill-neutral-900" />
+          <SmallSpinner />
         ) : (
           <PlusSmallIcon className="h-5 w-5 text-neutral-100 dark:text-neutral-900" />
         )}

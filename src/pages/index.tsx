@@ -2,7 +2,7 @@ import { type NextPage } from 'next'
 import Head from 'next/head'
 
 import { api } from '~/utils/api'
-import { Spinner } from '~/components/ui/Spinner'
+import { BigSpinner } from '~/components/ui/BigSpinner'
 import SubmitTask from '~/components/SubmitTask'
 import PageLayout from '~/components/ui/Layout'
 import Task from '~/components/Task'
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       </Head>
       <PageLayout>
         <SubmitTask />
-        {isLoading && <Spinner size={8} color="neutral-100" />}
+        {isLoading && <BigSpinner />}
         {data?.map((task) => (
           <Task key={task.id} task={task} />
         ))}
