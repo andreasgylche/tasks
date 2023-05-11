@@ -1,7 +1,7 @@
 import React from 'react'
 import { api } from '~/utils/api'
 import { format } from 'date-fns'
-import { Task } from '@prisma/client'
+import type { Task } from '@prisma/client'
 
 export default function Task({ task }: { task: Task }) {
   const ctx = api.useContext()
@@ -21,11 +21,11 @@ export default function Task({ task }: { task: Task }) {
     <div
       key={task.id}
       className={`flex w-full items-center justify-between gap-2 rounded-xl bg-neutral-800 p-3 ${
-        task.done && 'opacity-50'
+        task.done ? 'opacity-50' : ''
       }`}
     >
       <div className="flex flex-col gap-1">
-        <p className={`max-w-prose text-sm ${task.done && 'line-through'}`}>
+        <p className={`max-w-prose text-sm ${task.done ? 'line-through' : ''}`}>
           {task.task}
         </p>
 
