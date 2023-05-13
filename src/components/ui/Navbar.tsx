@@ -1,7 +1,7 @@
 import { SignInButton, UserButton, useUser } from '@clerk/nextjs'
 import React from 'react'
 import { ListBulletIcon } from '@heroicons/react/24/outline'
-import ThemeButton from './ThemeButton'
+import ThemeButton from '~/components/ui/ThemeButton'
 
 export default function Navbar() {
   const user = useUser()
