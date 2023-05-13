@@ -1,6 +1,7 @@
 import { SignInButton, UserButton, useUser } from '@clerk/nextjs'
 import React from 'react'
 import { ListBulletIcon } from '@heroicons/react/24/outline'
+import ThemeButton from './ThemeButton'
 
 export default function Navbar() {
   const user = useUser()
@@ -12,19 +13,22 @@ export default function Navbar() {
 
         <span className="text-lg">tasks</span>
       </div>
-      {!user.isSignedIn && <SignInButton />}
-      {user.isSignedIn && (
-        <UserButton
-          appearance={{
-            elements: {
-              avatarBox: 'rounded-xl',
-              userButtonTrigger:
-                'focus:shadow-none focus:ring focus:ring-teal-700 rounded-xl',
-              userButtonPopoverCard: 'rounded-xl',
-            },
-          }}
-        />
-      )}
+      <div className="flex gap-2">
+        <ThemeButton />
+        {!user.isSignedIn && <SignInButton />}
+        {user.isSignedIn && (
+          <UserButton
+            appearance={{
+              elements: {
+                avatarBox: 'rounded-xl',
+                userButtonTrigger:
+                  'focus:shadow-none focus:ring focus:ring-teal-700 rounded-xl',
+                userButtonPopoverCard: 'rounded-xl',
+              },
+            }}
+          />
+        )}
+      </div>
     </div>
   )
 }

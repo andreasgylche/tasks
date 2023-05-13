@@ -20,11 +20,11 @@ export default function Task({ task }: { task: Task }) {
   return (
     <div
       key={task.id}
-      className={`flex w-full items-center justify-between gap-2 rounded-xl bg-neutral-800 p-3 ${
+      className={`flex w-full items-center justify-between gap-2 rounded-xl bg-neutral-200 p-3 dark:bg-neutral-800 ${
         task.done ? 'opacity-50' : ''
       }`}
     >
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col">
         <p className={`max-w-prose text-sm ${task.done ? 'line-through' : ''}`}>
           {task.task}
         </p>
@@ -36,14 +36,14 @@ export default function Task({ task }: { task: Task }) {
       <div className="flex gap-2">
         <span
           onClick={() => toggleStatus({ isDone: !task.done, id: task.id })}
-          className="cursor-pointer rounded-lg border border-neutral-700 px-2 py-1 text-sm transition-colors hover:border-teal-700"
+          className="cursor-pointer rounded-lg border border-neutral-700 px-2 py-1 text-sm transition-colors hover:border-teal-700 hover:bg-teal-700/10"
         >
           Done
         </span>
 
         <span
           onClick={() => deleteTask({ id: task.id })}
-          className="cursor-pointer rounded-lg border border-neutral-700 px-2 py-1 text-sm transition-colors hover:border-pink-700"
+          className="cursor-pointer rounded-lg border border-neutral-700 px-2 py-1 text-sm transition-colors hover:border-pink-700 hover:bg-pink-700/10"
         >
           Delete
         </span>
