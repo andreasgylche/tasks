@@ -28,9 +28,14 @@ export const tasksRouter = createTRPCRouter({
       where: {
         userId,
       },
-      orderBy: {
-        createdAt: 'desc',
-      },
+      orderBy: [
+        {
+          done: 'asc',
+        },
+        {
+          createdAt: 'desc',
+        },
+      ],
     })
 
     return task
