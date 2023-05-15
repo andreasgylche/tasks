@@ -1,14 +1,13 @@
+import { useUser } from '@clerk/nextjs'
 import { type NextPage } from 'next'
 import Head from 'next/head'
 
-import { api } from '~/utils/api'
-import { BigSpinner } from '~/components/ui/BigSpinner'
-import SubmitTask from '~/components/SubmitTask'
 import PageLayout from '~/components/ui/Layout'
-import Task from '~/components/Task'
+import TaskList from '~/components/TaskList'
+import Welcome from '~/components/Welcome'
 
 const Home: NextPage = () => {
-  const { data, isLoading } = api.tasks.get.useQuery()
+  const user = useUser()
 
   return (
     <>
@@ -18,13 +17,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageLayout>
-        <SubmitTask />
-        {isLoading && <BigSpinner />}
-        <div className="flex w-full flex-col gap-2">
-          {data?.map((task) => (
-            <Task key={task.id} task={task} />
-          ))}
-        </div>
+        {!user.isSignedIn && <Welcome />}
+        {user.isSignedIn && <TaskList />}
       </PageLayout>
     </>
   )
