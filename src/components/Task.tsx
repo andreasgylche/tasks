@@ -2,21 +2,24 @@ import React from 'react'
 import { api } from '~/utils/api'
 import { format } from 'date-fns'
 import type { Task } from '@prisma/client'
+import { SmallSpinner } from './ui/SmallSpinner'
 
 export default function Task({ task }: { task: Task }) {
   const ctx = api.useContext()
 
-  const { mutate: toggleStatus } = api.tasks.toggleStatus.useMutation({
-    onSuccess: () => {
-      void ctx.tasks.get.invalidate()
-    },
-  })
+  const { mutate: toggleStatus, isLoading: isToggling } =
+    api.tasks.toggleStatus.useMutation({
+      onSuccess: () => {
+        void ctx.tasks.get.invalidate()
+      },
+    })
 
-  const { mutate: deleteTask } = api.tasks.delete.useMutation({
-    onSuccess: () => {
-      void ctx.tasks.get.invalidate()
-    },
-  })
+  const { mutate: deleteTask, isLoading: isDeleting } =
+    api.tasks.delete.useMutation({
+      onSuccess: () => {
+        void ctx.tasks.get.invalidate()
+      },
+    })
   return (
     <div
       key={task.id}
@@ -38,14 +41,14 @@ export default function Task({ task }: { task: Task }) {
           onClick={() => toggleStatus({ isDone: !task.done, id: task.id })}
           className="cursor-pointer rounded-lg border border-neutral-700 px-2 py-1 text-sm transition-colors hover:border-teal-700 hover:bg-teal-700/10"
         >
-          Done
+          {isToggling ? <SmallSpinner /> : task.done ? 'Undo' : 'Done'}
         </span>
 
         <span
           onClick={() => deleteTask({ id: task.id })}
           className="cursor-pointer rounded-lg border border-neutral-700 px-2 py-1 text-sm transition-colors hover:border-pink-700 hover:bg-pink-700/10"
         >
-          Delete
+          {isDeleting ? <SmallSpinner /> : 'Delete'}
         </span>
       </div>
     </div>
