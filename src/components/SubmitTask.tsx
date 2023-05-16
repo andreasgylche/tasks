@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { PlusSmallIcon } from '@heroicons/react/24/outline'
 import { api } from '~/utils/api'
-import { SmallSpinner } from './ui/SmallSpinner'
+import SmallSpinner from './ui/SmallSpinner'
 
 export default function SubmitTask() {
   const [task, setTask] = useState('')
