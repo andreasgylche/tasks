@@ -3,6 +3,7 @@ import { api } from '~/utils/api'
 import { format } from 'date-fns'
 import type { Task } from '@prisma/client'
 import SmallSpinner from './ui/SmallSpinner'
+import TaskSpinner from './ui/TaskSpinner'
 
 export default function Task({ task }: { task: Task }) {
   const ctx = api.useContext()
@@ -39,16 +40,16 @@ export default function Task({ task }: { task: Task }) {
       <div className="flex gap-2">
         <span
           onClick={() => toggleStatus({ isDone: !task.done, id: task.id })}
-          className="cursor-pointer rounded-lg border border-neutral-700 px-2 py-1 text-sm transition-colors hover:border-teal-700 hover:bg-teal-700/10"
+          className="flex w-[52px] cursor-pointer items-center justify-center rounded-lg border border-neutral-700 px-2 py-1 text-sm transition-colors hover:border-teal-700 hover:bg-teal-700/10"
         >
-          {isToggling ? <SmallSpinner /> : task.done ? 'Undo' : 'Done'}
+          {isToggling ? <TaskSpinner /> : task.done ? 'Undo' : 'Done'}
         </span>
 
         <span
           onClick={() => deleteTask({ id: task.id })}
-          className="cursor-pointer rounded-lg border border-neutral-700 px-2 py-1 text-sm transition-colors hover:border-pink-700 hover:bg-pink-700/10"
+          className="flex w-[68px] cursor-pointer items-center justify-center rounded-lg border border-neutral-700 px-2 py-1 text-sm transition-colors hover:border-pink-700 hover:bg-pink-700/10"
         >
-          {isDeleting ? <SmallSpinner /> : 'Delete'}
+          {isDeleting ? <TaskSpinner /> : 'Delete'}
         </span>
       </div>
     </div>
