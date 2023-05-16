@@ -2,7 +2,7 @@ import React from 'react'
 import { api } from '~/utils/api'
 import { format } from 'date-fns'
 import type { Task } from '@prisma/client'
-import { SmallSpinner } from './ui/SmallSpinner'
+import SmallSpinner from './ui/SmallSpinner'
 
 export default function Task({ task }: { task: Task }) {
   const ctx = api.useContext()

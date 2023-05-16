@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export function SmallSpinner() {
+export default function SmallSpinner() {
   return (
     <div role="status">
       <svg
