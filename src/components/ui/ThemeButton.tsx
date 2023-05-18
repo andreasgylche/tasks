@@ -17,7 +17,7 @@ export default function ThemeButton() {
   return (
     <button
       type="button"
-      className="flex h-8 w-8 items-center justify-center rounded-xl hover:bg-neutral-200 dark:hover:bg-neutral-900"
+      className="flex h-8 w-8 items-center justify-center rounded-xl outline-none hover:bg-neutral-200 focus:ring focus:ring-violet-700 dark:hover:bg-neutral-900"
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {resolvedTheme === 'dark' ? (

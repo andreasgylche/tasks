@@ -22,7 +22,7 @@ export default function Navbar() {
               elements: {
                 avatarBox: 'rounded-xl',
                 userButtonTrigger:
-                  'focus:shadow-none focus:ring focus:ring-violet-700 rounded-xl',
+                  'focus:shadow-none focus:ring focus:ring-violet-700 rounded-xl focus-visible:ring focus-visible:outline-none focus-visible:ring-violet-700',
                 userButtonPopoverCard: 'rounded-xl',
               },
             }}
