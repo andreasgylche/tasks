@@ -33,7 +33,7 @@ export default function SubmitTask() {
       />
       <button
         disabled={!task}
-        className="absolute ml-3 mt-3 flex h-6 w-6 items-center justify-center rounded-lg bg-pink-700 dark:bg-teal-700"
+        className="absolute ml-3 mt-3 flex h-6 w-6 items-center justify-center rounded-lg bg-violet-700"
       >
         {isPosting ? (
           <SmallSpinner />

@@ -5,7 +5,7 @@ export function BigSpinner() {
     <div role="status">
       <svg
         aria-hidden="true"
-        className="h-8 w-8 animate-spin fill-pink-700 text-transparent dark:fill-teal-700"
+        className="h-8 w-8 animate-spin fill-violet-700 text-transparent"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
