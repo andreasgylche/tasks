@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export function BigSpinner() {
   return (
-    <div role="status">
+    <div role="status" className="mx-auto w-fit">
       <svg
         aria-hidden="true"
         className="h-8 w-8 animate-spin fill-violet-700 text-transparent"
