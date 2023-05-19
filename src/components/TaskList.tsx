@@ -13,7 +13,9 @@ export default function TaskList() {
   return (
     <div className="w-full">
       <SubmitTask />
-      {!data || data.length === 0 ? (
+      {isLoading ? (
+        <BigSpinner />
+      ) : !data || data.length === 0 ? (
         <div className="w-full text-center opacity-50">
           <span>You have no tasks.</span>
         </div>
@@ -25,7 +27,6 @@ export default function TaskList() {
               {completedTasks} out of {totalTasks} done
             </span>
           </div>
-          {isLoading && <BigSpinner />}
           {data?.map((task) => (
             <Task key={task.id} task={task} />
           ))}
